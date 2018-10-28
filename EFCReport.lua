@@ -8,7 +8,6 @@ EFCReport.created = false
 EFCReport:RegisterEvent("ADDON_LOADED")
 EFCReport:RegisterEvent("PLAYER_ENTERING_WORLD")
 EFCReport:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-EFCReport:SetScript("OnEvent", EFCReport.OnEvent)
 SLASH_EFCReport1 = '/efcr'
 SLASH_EFCReport2 = '/EFCR'
 
@@ -53,7 +52,7 @@ function EFCReport:OnEvent()
 	if event == "ADDON_LOADED" and arg1 == "EFCReport" then
 		Print("Loaded")
 	elseif event == 'PLAYER_ENTERING_WORLD' or event == 'ZONE_CHANGED_NEW_AREA' then
-		if GetZoneText() == "Warsong Gulch" then
+		if GetRealZoneText() == "Warsong Gulch" then
 			if EFCReport.created == false then
 				EFCReport.create()
 			end
@@ -65,6 +64,7 @@ function EFCReport:OnEvent()
 		end
 	end	
 end
+EFCReport:SetScript("OnEvent", EFCReport.OnEvent)
 
 -- Hanlde slash commands
 -- /efcr
@@ -110,7 +110,7 @@ end
 -- Create the EFCReport dialog
 function EFCReport:create()
 	-- Option Frame
-	local frame = CreateFrame("Frame", "EFCReport")
+	local frame = CreateFrame("Frame", "EFCRFrame")
 	EFCReport.EFCFrame = frame
 
 	tinsert(UISpecialFrames,"EFCReport")
