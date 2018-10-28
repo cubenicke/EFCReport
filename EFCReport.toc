@@ -1,0 +1,9 @@
+## Interface: 11200
+## Title: EFCReport by CubeNicke
+## Author: CubeNicke aka Yrrol@vanillagaming
+## Version: 1.0
+## Notes: Enemy Flag Carrier report tool
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariables: EFCRSaves
+EFCReport.lua
