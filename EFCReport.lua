@@ -107,6 +107,14 @@ SlashCmdList['EFCReport'] = function (msg)
 	end
 end
 
+function EFCReport_OnEnter()
+	EFCReport.EFCFrame:SetAlpha(1)
+end
+
+function EFCReport_OnLeave()
+	EFCReport.EFCFrame:SetAlpha(0.4)
+end
+
 -- Create the EFCReport dialog
 function EFCReport:create()
 	-- Option Frame
@@ -142,6 +150,7 @@ function EFCReport:create()
 	frame:SetMovable(true)
 	frame:EnableMouse(true)
 	frame:SetClampedToScreen(false)
+	frame:SetAlpha(0.4)
 	frame:Hide()
 
 	-- Handle drag of window
@@ -166,7 +175,9 @@ function EFCReport:create()
 			this.isMoving = false;
 		end
 	end)
-	
+	frame:SetScript("OnEnter", EFCReport_OnEnter)
+	frame:SetScript("OnLeave", EFCReport_OnLeave)
+
 	-- Create the buttons
 	for i,btn in pairs(buttons) do
 		local btn_frame = CreateFrame("Button", btn.text, frame)
@@ -192,6 +203,8 @@ function EFCReport:create()
 		btn_frame:SetPushedTexture(iconPath..btn.tex)
 		btn_frame:GetHighlightTexture():SetTexture(0.4,0.3,0.3,0.2)
 		btn_frame:GetPushedTexture():SetTexture(0.4,0.3,0.3,0.5)
+		btn_frame:SetScript("OnEnter", EFCReport_OnEnter)
+		btn_frame:SetScript("OnLeave", EFCReport_OnLeave)
 	end
 	EFCReport.created = true
 end
