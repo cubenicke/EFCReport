@@ -1,6 +1,6 @@
 --
 -- EFCReport by Cubenicke aka Yrrol@vanaillagaming
--- Thx for the Inspiration lanevegame (p.s. send me the graphics)
+-- Thx for the good looking graphics lanevegame!
 -- 
 EFCReport = CreateFrame('Frame', "EFCReport", UIParent)
 EFCReport.enabled = false
@@ -12,33 +12,33 @@ SLASH_EFCReport1 = '/efcr'
 SLASH_EFCReport2 = '/EFCR'
 
 if not EFCRSaves then
-	EFCRSaves = { scale = 0, x = 0, y = 0 }
+	EFCRSaves = { scale = 0, x = 0, y = 0, dim = false }
 end
 
 local buttons = {
-	{ x=10, y=-10, w=32, h=32, tex = "repic28", text="Repick", bkg = "neutral"},
-	{ x=42, y=-10, w=64, h=32, tex = "roof56", text="EFC @ ARoof", bkg = "alliance"},
-	{ x=106, y=-10, w=32, h=32, tex = "cap28", text="Cap", bkg = "neutral"},
-	{ x=10, y=-42, w=32, h=32, tex = "gy28", text="EFC @ AGY", bkg = "alliance"},
-	{ x=42, y=-42, w=32, h=32, tex = "fr28", text="EFC @ AFR", bkg = "alliance"},
-	{ x=74, y=-42, w=32, h=32, tex = "balc28", text="EFC @ ABalc", bkg = "alliance"},
-	{ x=106, y=-42, w=32, h=32, tex = "ramp28", text="EFC @ ARamp", bkg = "alliance"},
-	{ x=10, y=-74, w=32, h=32, tex = "resto28", text="EFC @ AResto", bkg = "alliance"},
-	{ x=42, y=-74, w=32, h=32, tex = "tun28", text="EFC @ ATunnel", bkg = "alliance"},
-	{ x=74, y=-74, w=32, h=32, tex = "fence28", text="EFC @ AFence", bkg = "alliance"},
-	{ x=106, y=-74, w=32, h=32, tex = "zerk28", text="EFC @ AZerk", bkg = "alliance"},
-	{ x=26, y=-106, w=32, h=32, tex = "west28", text="EFC West", bkg = "neutral"},
-	{ x=58, y=-106, w=32, h=32, tex = "mid28", text="EFC Mid", bkg = "neutral"},
-	{ x=90, y=-106, w=32, h=32, tex = "east28", text="EFC East", bkg = "neutral"},
-	{ x=10, y=-138, w=32, h=32, tex = "zerk28", text="EFC @ HZerk", bkg = "horde"},
-	{ x=42, y=-138, w=32, h=32, tex = "tun28", text="EFC @ HTunnel", bkg = "horde"},
-	{ x=74, y=-138, w=32, h=32, tex = "fence28", text="EFC @ HFence", bkg = "horde"},
-	{ x=106, y=-138, w=32, h=32, tex = "resto28", text="EFC @ HResto", bkg = "horde"},
-	{ x=10, y=-170, w=32, h=32, tex = "ramp28", text="EFC @ HRamp", bkg = "horde"},
-	{ x=42, y=-170, w=32, h=32, tex = "fr28", text="EFC @ HFR", bkg = "horde"},
-	{ x=74, y=-170, w=32, h=32, tex = "balc28", text="EFC @ HBalc", bkg = "horde"},
-	{ x=106, y=-170, w=32, h=32, tex = "gy28", text="EFC @ HGY", bkg = "horde"},
-	{ x=42, y=-202, w=64, h=32, tex = "roof56", text="EFC @ HRoof", bkg = "horde"},
+	{ x={2,2}, y={-2,-2}, w=32, h=32, tex = "repic28", text="Get ready to repick!"},
+	{ x={34,34}, y={-2,-194}, w=64, h=32, tex = "aroof.blp", text="EFC Alliance roof!"},
+	{ x={98,98}, y={-2,-2}, w=32, h=32, tex = "cap28", text="Get ready to cap!"},
+	{ x={2,98}, y={-34,-162}, w=32, h=32, tex = "agy.blp", text="EFC Alliance graveyard!"},
+	{ x={34,66}, y={-34,-162}, w=32, h=32, tex = "afr.blp", text="EFC Alliance flag room!"},
+	{ x={66,34}, y={-34,-162}, w=32, h=32, tex = "abalc.blp", text="EFC Alliance balcony!"},
+	{ x={98,2}, y={-34,-162}, w=32, h=32, tex = "aramp.blp", text="EFC Alliance ramp!"},
+	{ x={2,98}, y={-66,-130}, w=32, h=32, tex = "aresto.blp", text="EFC Alliance resto hut!"},
+	{ x={34,66}, y={-66,-130}, w=32, h=32, tex = "afence.blp", text="EFC Alliance fence!"},
+	{ x={66,34}, y={-66,-130}, w=32, h=32, tex = "atun.blp", text="EFC Alliance tunnel!"},
+	{ x={98,2}, y={-66,-130}, w=32, h=32, tex = "azerk.blp", text="EFC Alliance zerker hut!"},
+	{ x={18,18}, y={-98,-98}, w=32, h=32, tex = "west.blp", text="EFC west!"},
+	{ x={50,50}, y={-98,-98}, w=32, h=32, tex = "mid.blp", text="EFC midfield!"},
+	{ x={82,82}, y={-98,-98}, w=32, h=32, tex = "east.blp", text="EFC east!"},
+	{ x={2,98}, y={-130,-66}, w=32, h=32, tex = "hzerk.blp", text="EFC Horde zerker hut!"},
+	{ x={34,66}, y={-130,-66}, w=32, h=32, tex = "htun.blp", text="EFC Horde tunnel!"},
+	{ x={66,34}, y={-130,-66}, w=32, h=32, tex = "hfence.blp", text="EFC Horde fence!"},
+	{ x={98,2}, y={-130,-66}, w=32, h=32, tex = "hresto.blp", text="EFC Horde resto hut!"},
+	{ x={2,98}, y={-162,-34}, w=32, h=32, tex = "hramp.blp", text="EFC Horde ramp!"},
+	{ x={34,66}, y={-162,-34}, w=32, h=32, tex = "hbalc.blp", text="EFC Horde balcony!"},
+	{ x={66,34}, y={-162,-34}, w=32, h=32, tex = "hfr.blp", text="EFC Horde flag room!"},
+	{ x={98,2}, y={-162,-34}, w=32, h=32, tex = "hgy.blp", text="EFC Horde graveyard!"},
+	{ x={34,34}, y={-194,-2}, w=64, h=32, tex = "hroof.blp", text="EFC Horde roof!"},
 }
 local iconPath = "Interface\\Addons\\EFCReport\\Icons\\"
 
@@ -102,30 +102,50 @@ SlashCmdList['EFCReport'] = function (msg)
 	elseif cmd == "y" then
 		EFCRSaves.y = tonumber(args) or 0
 		EFCReport.EFCFrame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y) 
+	elseif cmd == "dim" then
+		if EFCRSaves.dim then
+			EFCReport.EFCFrame:SetAlpha(1)
+			EFCRSaves.dim = false
+		else
+			EFCReport.EFCFrame:SetAlpha(0.4)
+			EFCRSaves.dim = true
+		end
 	else
 		Print("Unknown command "..cmd)
 	end
 end
 
 function EFCReport_OnEnter()
-	EFCReport.EFCFrame:SetAlpha(1)
+	if EFCRSaves.dim then
+		EFCReport.EFCFrame:SetAlpha(1)
+	end
 end
 
 function EFCReport_OnLeave()
-	EFCReport.EFCFrame:SetAlpha(0.4)
+	if EFCRSaves.dim then
+		EFCReport.EFCFrame:SetAlpha(0.4)
+	end
 end
 
 -- Create the EFCReport dialog
 function EFCReport:create()
 	-- Option Frame
 	local frame = CreateFrame("Frame", "EFCRFrame")
+	local ix
+
 	EFCReport.EFCFrame = frame
 
 	tinsert(UISpecialFrames,"EFCReport")
 
+	if UnitFactionGroup("player") == "Horde" then
+		ix = 1
+	else
+		ix = 2
+	end
+
 	-- Set scale, size and position
-	frame:SetWidth(148)
-	frame:SetHeight(244)
+	frame:SetWidth(142)
+	frame:SetHeight(228)
 	if EFCRSaves.scale > 0 then
 		frame:SetScale(EFCRSaves.scale)
 	end
@@ -137,20 +157,23 @@ function EFCReport:create()
 	-- Background on entire frame
 	frame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y)
 	frame:SetBackdrop( {
-			bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background", 
-			edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border", 
-			tile = true, 
-			tileSize = 32, 
-			edgeSize = 32, 
-			insets = { left = 11, right = 12, top = 12, bottom = 11 }
-		} );
-	frame:SetBackdropColor(.01, .01, .01, .91)
+	  bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+	  edgeFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+	  tile = true, 
+	  tileSize = 32, 
+	  edgeSize = 2, 
+	  insets = { left = 2, right = 2, top = 2, bottom = 2 }
+	} );
+	frame:SetBackdropColor(0, 0, 0, .91)
+	frame:SetBackdropBorderColor(0.3, 0.3, 0.3, 1)
 
 	-- Make it moveable
 	frame:SetMovable(true)
 	frame:EnableMouse(true)
 	frame:SetClampedToScreen(false)
-	frame:SetAlpha(0.4)
+	if EFCRSaves.dim then
+		frame:SetAlpha(0.4)
+	end
 	frame:Hide()
 
 	-- Handle drag of window
@@ -181,7 +204,7 @@ function EFCReport:create()
 	-- Create the buttons
 	for i,btn in pairs(buttons) do
 		local btn_frame = CreateFrame("Button", btn.text, frame)
-		btn_frame:SetPoint("TOPLEFT", frame, "TOPLEFT", btn.x, btn.y)
+		btn_frame:SetPoint("TOPLEFT", frame, "TOPLEFT", btn.x[ix], btn.y[ix])
 		btn_frame.id = i
 		btn_frame:SetWidth(btn.w)
 		btn_frame:SetHeight(btn.h)
@@ -191,18 +214,8 @@ function EFCReport:create()
 			SendChatMessage(buttons[this.id].text ,"Battleground" ,"common")
 		end)
 		btn_frame:SetBackdrop( {
-				bgFile = iconPath..btn.bkg,
-				edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
-				tile = true,
-				tileSize = 32,
-				edgeSize = 1,
-				insets = { left = 1, right = 1, top = 1, bottom = 1 }
-			} );
-		btn_frame:SetNormalTexture(iconPath..btn.tex)
-		btn_frame:SetHighlightTexture(iconPath..btn.tex)
-		btn_frame:SetPushedTexture(iconPath..btn.tex)
-		btn_frame:GetHighlightTexture():SetTexture(0.4,0.3,0.3,0.2)
-		btn_frame:GetPushedTexture():SetTexture(0.4,0.3,0.3,0.5)
+			bgFile = iconPath..btn.tex,
+		} );
 		btn_frame:SetScript("OnEnter", EFCReport_OnEnter)
 		btn_frame:SetScript("OnLeave", EFCReport_OnLeave)
 	end
