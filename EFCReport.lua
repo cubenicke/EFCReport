@@ -139,8 +139,10 @@ function EFCReport:create()
 
 	if UnitFactionGroup("player") == "Horde" then
 		ix = 1
+		EFCReport.Language = "Orcish"
 	else
 		ix = 2
+		EFCReport.Language = "Common"
 	end
 
 	-- Set scale, size and position
@@ -211,7 +213,7 @@ function EFCReport:create()
 		-- Handle clicks
 		btn_frame:SetScript("OnClick", function()
 			Print(buttons[this.id].text)
-			SendChatMessage(buttons[this.id].text ,"Battleground" ,"common")
+			SendChatMessage(buttons[this.id].text ,"Battleground" , EFCReport.Language)
 		end)
 		btn_frame:SetBackdrop( {
 			bgFile = iconPath..btn.tex,
