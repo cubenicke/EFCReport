@@ -1,5 +1,5 @@
 --
--- EFCReport by Cubenicke aka Yrrol@vanaillagaming
+-- EFCReport by Cubenicke aka Yrrol@vanillagaming
 -- Thx for the good looking graphics lanevegame!
 -- 
 EFCReport = CreateFrame('Frame', "EFCReport", UIParent)
@@ -146,7 +146,7 @@ function EFCReport:create()
 	end
 
 	-- Set scale, size and position
-	frame:SetWidth(142)
+	frame:SetWidth(132)
 	frame:SetHeight(228)
 	if EFCRSaves.scale > 0 then
 		frame:SetScale(EFCRSaves.scale)
