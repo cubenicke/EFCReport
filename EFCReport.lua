@@ -1,7 +1,7 @@
 --
 -- EFCReport by Cubenicke aka Yrrol@vanillagaming
 -- Thx for the good looking graphics lanevegame!
--- 
+--
 EFCReport = CreateFrame('Frame', "EFCReport", UIParent)
 EFCReport.enabled = false
 EFCReport.created = false
@@ -62,7 +62,7 @@ function EFCReport:OnEvent()
 			EFCReport.enabled = false
 			EFCReport.EFCFrame:Hide()
 		end
-	end	
+	end
 end
 EFCReport:SetScript("OnEvent", EFCReport.OnEvent)
 
@@ -95,13 +95,13 @@ SlashCmdList['EFCReport'] = function (msg)
 		local x, y = string.find(args,"(.*)%s*(.*)")
 		EFCRSaves.x = x or 0
 		EFCRSaves.y = y or 0
-		EFCReport.EFCFrame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y) 
+		EFCReport.EFCFrame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y)
 	elseif cmd == "x" then
 		EFCRSaves.x = tonumber(args) or 0
-		EFCReport.EFCFrame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y) 
+		EFCReport.EFCFrame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y)
 	elseif cmd == "y" then
 		EFCRSaves.y = tonumber(args) or 0
-		EFCReport.EFCFrame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y) 
+		EFCReport.EFCFrame:SetPoint("TOPLEFT", nil, "TOPLEFT", EFCRSaves.x, -EFCRSaves.y)
 	elseif cmd == "dim" then
 		if EFCRSaves.dim then
 			EFCReport.EFCFrame:SetAlpha(1)
@@ -161,9 +161,9 @@ function EFCReport:create()
 	frame:SetBackdrop( {
 	  bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
 	  edgeFile = "Interface\\Tooltips\\UI-Tooltip-Background",
-	  tile = true, 
-	  tileSize = 32, 
-	  edgeSize = 2, 
+	  tile = true,
+	  tileSize = 32,
+	  edgeSize = 2,
 	  insets = { left = 2, right = 2, top = 2, bottom = 2 }
 	} );
 	frame:SetBackdropColor(0, 0, 0, .91)
@@ -212,7 +212,7 @@ function EFCReport:create()
 		btn_frame:SetHeight(btn.h)
 		-- Handle clicks
 		btn_frame:SetScript("OnClick", function()
-			Print(buttons[this.id].text)
+			--Print(buttons[this.id].text)
 			SendChatMessage(buttons[this.id].text ,"Battleground" , EFCReport.Language)
 		end)
 		btn_frame:SetBackdrop( {
