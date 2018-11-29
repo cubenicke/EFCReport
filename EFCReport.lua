@@ -141,7 +141,7 @@ function EFCReport:create()
 		ix = 1
 		EFCReport.Language = "Orcish"
 	else
-		ix = 2
+		ix = 1
 		EFCReport.Language = "Common"
 	end
 
